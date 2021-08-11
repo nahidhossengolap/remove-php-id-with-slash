@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+ 
+    RewriteEngine On
+
+    # Remove .php extensions
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.+?)/([^/]+)/?$ $1.php [L,QSA]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+    # Remove ? to /
+    RewriteCond %{THE_REQUEST} ^GET\s([^.]+)\.php?id=([^&\s]+)\s [NC]
+    RewriteRule ^ %1/%2? [R,L]
+</IfModule>
+

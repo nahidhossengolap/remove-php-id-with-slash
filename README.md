@@ -1,1 +1,1 @@
-# remove-php-id-with-slash
+# remove index.php?id+ with / (slash)
